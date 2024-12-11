@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "6568001386",
+    "project_id": "uton-c787f",
+    "storage_bucket": "uton-c787f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6568001386:android:2317cbd3f6010641a6af13",
+        "android_client_info": {
+          "package_name": "hu.soulquest.uton"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVuC3UjSPPrLLjqf105Q-OcX4gE6aSWz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

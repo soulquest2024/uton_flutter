@@ -1,4 +1,4 @@
-package hu.soulquest.uton.uton_flutter
+package hu.soulquest.uton
 
 import io.flutter.embedding.android.FlutterActivity
 

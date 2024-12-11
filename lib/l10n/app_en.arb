@@ -1,0 +1,13 @@
+
+{
+    "app_name" : "Úton",
+
+    "tab_offers" : "Offers",
+    "tab_search" : "Search",
+    "tab_shrine" : "Shrine",
+    "tab_experiences" : "Experiences",
+    "tab_profile" : "Profile",
+
+    "home_title" : "Home"
+
+}
