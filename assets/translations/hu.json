@@ -1,0 +1,54 @@
+
+{
+  "app_name" : "Úton",
+
+  "tab_offers" : "Ajánlatok",
+  "tab_search" : "Keresés",
+  "tab_shrine" : "Kegyhely",
+  "tab_experiences" : "Élmények",
+  "tab_profile" : "Profil",
+  "tab_settings" : "Beállítások",
+
+  "login_title" : "Bejelentkezés",
+  "login_email" : "E-mail cím",
+  "login_password" : "Jelszó",
+  "login_button" : "Bejelentkezés",
+  "login_forgot" : "Elfelejtetted a jelszavadat?",
+  "login_register" : "Nincs még fiókod? Regisztrálj!",
+
+  "email_validation" : "Írd be az e-mail címet!",
+  "password_validation" : "Írd be a jelszót!",
+  "password_retype_validation" : "Írd be a jelszót újra!",
+  "name_validation" : "Írd be a nevet!",
+  "address_validation" : "Írd be a címet!",
+  "birthdate_validation" : "Add meg a születési dátumot!",
+  "gender_validation" : "Add meg a nemedet!",
+  "gender_select" : "Válaszd ki a nemedet!",
+  "gender_male" : "Férfi",
+  "gender_female" : "Nő",
+  "gender_other" : "Egyéb",
+
+  "registration_title" : "Regisztráció",
+  "registration_name" : "Név",
+  "registration_email" : "E-mail cím",
+  "registration_password" : "Jelszó",
+  "registration_password_retype" : "Jelszó újra",
+  "registration_button" : "Regisztráció",
+  "registration_login" : "Van már fiókod? Jelentkezz be!",
+  "registration_address" : "Lakcím",
+  "registration_phone" : "Telefonszám",
+  "registration_birthdate" : "Születési dátum",
+  "registration_gender" : "Nem",
+
+  "forgot_title" : "Elfelejtett jelszó",
+  "forgot_instruction" : "Írd be az e-mail címedet, és küldünk egy linket a jelszavad visszaállításához.",
+  "forgot_button" : "Jelszó visszaállítása",
+  "forgot_empty_email" : "Írd be az e-mail címedet!",
+  "forget_email_sent" : "Az e-mail elküldve!",
+  "forgot_email_not_found" : "Az e-mail cím nem található!",
+  "forgot_email_error" : "Hiba történt az e-mail küldése közben!",
+  "forgot_email_format" : "Az e-mail cím formátuma nem megfelelő!",
+
+  "home_title" : "Főoldal"
+
+}

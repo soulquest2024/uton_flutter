@@ -12,6 +12,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text('Search Screen'),
       ),

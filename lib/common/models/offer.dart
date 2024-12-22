@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -7,68 +9,77 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonSerializable(includeIfNull: false)
 class Offer {
   String? id;
-  int? shrineId;
-  String? title;
-  String? date;
-  String? location;
-  GeoPoint? coordinates;
+  String? accomodation;
   String? category;
+  String? date;
+  int? days;
   String? image;
-  String? shortText;
-  String? program;
-  String? description;
+  List<String>? labels;
+  int? offerId;
+  int? offerType;
+  int? price;
+  String? quarters;
+  String? spiritualGuide;
+  String? title;
+  String? travelAgency;
+  String? trip;
   String? url;
-  String? plakat;
 
   Offer({
     this.id,
-    this.shrineId,
-    this.title,
-    this.date,
-    this.location,
-    this.coordinates,
+    this.accomodation,
     this.category,
+    this.date,
+    this.days,
     this.image,
-    this.shortText,
-    this.program,
-    this.description,
+    this.labels,
+    this.offerId,
+    this.offerType,
+    this.price,
+    this.quarters,
+    this.spiritualGuide,
+    this.title,
+    this.travelAgency,
+    this.trip,
     this.url,
-    this.plakat,
   });
 
   Offer.fromDocumentSnapshot(QueryDocumentSnapshot doc) {
     id = doc.id;
-    shrineId = doc['shrineId'];
-    title = doc['title'];
-    date = doc['date'];
-    location = doc['location'];
-    if (doc['coordinates'] is GeoPoint) {
-      coordinates = doc['coordinates'];
-    }
+    accomodation = doc['accomodation'];
     category = doc['category'];
+    date = doc['date'];
     image = doc['image'];
-    shortText = doc['shortText'];
-    program = doc['program'];
-    description = doc['description'];
+    labels = List<String>.from(doc['labels'] ?? []);
+    offerId = doc['offerId'];
+    offerType = doc['offerType'];
+    price = doc['price'];
+    quarters = doc['quarters'];
+    spiritualGuide = doc['spiritualGuide'];
+    title = doc['title'];
+    travelAgency = doc['travelAgency'];
+    trip = doc['trip'];
     url = doc['url'];
-    plakat = doc['plakat'];
   }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'shrineId': shrineId,
-      'title': title,
-      'date': date,
-      'location': location,
-      'coordinates': coordinates,
+      'accomodation': accomodation,
       'category': category,
+      'date': date,
+      'days': days,
       'image': image,
-      'shortText': shortText,
-      'program': program,
-      'description': description,
+      'labels': labels,
+      'offerId': offerId,
+      'offerType': offerType,
+      'price': price,
+      'quarters': quarters,
+      'spiritualGuide': spiritualGuide,
+      'title': title,
+      'travelAgency': travelAgency,
+      'trip': trip,
       'url': url,
-      'plakat': plakat,
     };
   }
 }

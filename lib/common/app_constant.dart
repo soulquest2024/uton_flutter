@@ -57,6 +57,7 @@ class AppColor {
   Color primaryColor = const Color.fromRGBO(170, 87, 250, 0.4);
   Color secondaryColor = const Color.fromRGBO(226, 140, 255, 0.1);
   Color thirdColor = const Color.fromRGBO(27, 156, 250, 0.3);
+  Color buttonColor = const Color.fromRGBO(201, 162, 252, 1.0);
 
   Color primaryInactiveColor = const Color.fromRGBO(240, 240, 240, 1);
   Color hintTextColor = const Color.fromRGBO(150, 150, 150, 1);

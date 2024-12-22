@@ -1,17 +1,18 @@
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uton_flutter/common/api/api_resource.dart';
+import 'package:provider/provider.dart';
 import 'package:uton_flutter/common/app_constant.dart';
 import 'package:uton_flutter/common/common_widgets/app_text.dart';
 import 'package:uton_flutter/common/common_widgets/common_widgets.dart';
-import 'package:uton_flutter/common/extensions.dart';
-import 'package:uton_flutter/common/models/offer.dart';
+import 'package:uton_flutter/dependency_injection/service_locator.dart';
 import 'package:uton_flutter/home/programs/home_programs.dart';
+import 'package:uton_flutter/providers/home_provider.dart';
 import 'package:uton_flutter/search/search_screen.dart';
+import 'package:uton_flutter/settings/settings_screen.dart';
 
-import 'home_bloc.dart';
 import 'offers/home_offers.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,9 +24,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  late HomeBloc _bloc;
-  Widget _currentWidget = Container();
-  List<Offer> _offers = [];
+  late Widget _currentWidget;
 
   List<String> headers = ['Programok', 'Ajánlatok'];
 
@@ -34,20 +33,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     super.initState();
     _tabController = TabController(length: 5, vsync: this);
     _tabController.addListener(_handleTabSelection);
-
-    _bloc = HomeBloc();
-    _bloc.getStream<ApiResource<List<Offer>>>(name: _bloc.offersKey)?.listen((event) {
-      if(event.status == ApiStatus.LOADING) {
-        // show loading
-      } else if(event.status == ApiStatus.SUCCESS) {
-        setState(() {
-          _offers = event.data ?? [];
-          _currentWidget = HomePrograms(offers: _offers);
-        });
-      } else if(event.status == ApiStatus.ERROR) {
-        // show error
-      }
-    });
+    _currentWidget = locator<HomePrograms>();
   }
 
   void _handleTabSelection() {
@@ -59,11 +45,12 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: Stack(
           children:
           [
-            imageAsset("background.png", fit: BoxFit.fill, width: getScreenSize(context).width, height: getScreenSize(context).height),
+            imageAsset("background.png", fit: BoxFit.fitWidth, width: getScreenSize(context).width, height: getScreenSize(context).height),
             _mainContent()
           ],
         )
@@ -92,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       children: <Widget>[
                         SizedBox(height: 2.0),
                         imageAsset("tabHome.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 0 ? Colors.black : Colors.black26),
-                        AppText(localized()?.home_title ?? 'Offers', textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 0 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
+                        AppText('home_title'.tr(), textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 0 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
                       ],
                     ),
                   ),
@@ -108,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       children: <Widget>[
                         SizedBox(height: 2.0),
                         imageAsset("tabSearch.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 1 ? Colors.black : Colors.black26),
-                        AppText(localized()?.tab_search ?? 'Search', textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 1 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
+                        AppText(tr('tab_search'), textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 1 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
                       ],
                     ),
                   ),
@@ -124,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       children: <Widget>[
                         SizedBox(height: 2.0),
                         imageAsset("tabShrine.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 2 ? Colors.black : Colors.black26),
-                        AppText(localized()?.tab_shrine ?? 'Shrine', textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 2 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
+                        AppText('tab_shrine'.tr(), textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 2 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
                       ],
                     ),
                   ),
@@ -140,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       children: <Widget>[
                         SizedBox(height: 2.0),
                         imageAsset("tabExperiences.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 3 ? Colors.black : Colors.black26),
-                        AppText(localized()?.tab_experiences ?? 'Experiences', textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 3 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
+                        AppText(tr('tab_experiences'), textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 3 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
                       ],
                     ),
                   ),
@@ -155,8 +142,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(height: 2.0),
-                        imageAsset("tabProfile.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 4 ? Colors.black : Colors.black26),
-                        AppText(localized()?.tab_profile ?? 'Profile', textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 4 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
+                        imageAsset("tabSettings.png", fit: BoxFit.fill, width: 24, height: 24, color: _tabController.index == 4 ? Colors.black : Colors.black26),
+                        AppText(tr('tab_settings'), textStyle: Resources.textStyle.koHoSmallText(color: _tabController.index == 4 ? Resources.color.textColor : Colors.black26, fontSize: 14)),
                       ],
                     ),
                   ),
@@ -172,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               SearchScreen(),
               Center(child: Text('School Tab')),
               Center(child: Text('Experiences Tab')),
-              Center(child: Text('Profile Tab')),
+              SettingsScreen(),
             ],
           ),
         ),
@@ -195,10 +182,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   setState(() {
                     switch (index) {
                       case 0:
-                        _currentWidget = HomePrograms(offers: _offers);
+                        _currentWidget = locator<HomePrograms>();
                         break;
                       case 1:
-                        _currentWidget = HomeOffers();
+                        _currentWidget = locator<HomeOffers>();
                         break;
                     }
                   });

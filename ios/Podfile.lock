@@ -1151,10 +1151,13 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.36):
     - BoringSSL-GRPC/Interface (= 0.0.36)
   - BoringSSL-GRPC/Interface (0.0.36)
-  - cloud_firestore (5.5.1):
+  - cloud_firestore (5.6.0):
     - Firebase/Firestore (= 11.4.0)
     - firebase_core
     - Flutter
+  - Firebase/Auth (11.4.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 11.4.0)
   - Firebase/CoreOnly (11.4.0):
     - FirebaseCore (= 11.4.0)
   - Firebase/Firestore (11.4.0):
@@ -1163,7 +1166,11 @@ PODS:
   - Firebase/Storage (11.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 11.4.0)
-  - firebase_core (3.8.1):
+  - firebase_auth (5.3.4):
+    - Firebase/Auth (= 11.4.0)
+    - firebase_core
+    - Flutter
+  - firebase_core (3.9.0):
     - Firebase/CoreOnly (= 11.4.0)
     - Flutter
   - firebase_storage (12.3.7):
@@ -1171,6 +1178,15 @@ PODS:
     - firebase_core
     - Flutter
   - FirebaseAppCheckInterop (11.6.0)
+  - FirebaseAuth (11.4.0):
+    - FirebaseAppCheckInterop (~> 11.0)
+    - FirebaseAuthInterop (~> 11.0)
+    - FirebaseCore (~> 11.4)
+    - FirebaseCoreExtension (~> 11.4)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GTMSessionFetcher/Core (< 5.0, >= 3.4)
+    - RecaptchaInterop (~> 100.0)
   - FirebaseAuthInterop (11.6.0)
   - FirebaseCore (11.4.0):
     - FirebaseCoreInternal (~> 11.0)
@@ -1209,14 +1225,29 @@ PODS:
     - GoogleUtilities/Environment (~> 8.0)
     - GTMSessionFetcher/Core (< 5.0, >= 3.4)
   - Flutter (1.0.0)
+  - flutter_secure_storage (6.0.0):
+    - Flutter
+  - GoogleUtilities/AppDelegateSwizzler (8.0.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+    - GoogleUtilities/Privacy
   - GoogleUtilities/Environment (8.0.2):
     - GoogleUtilities/Privacy
   - GoogleUtilities/Logger (8.0.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Privacy
+  - GoogleUtilities/Network (8.0.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Privacy
+    - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (8.0.2)":
     - GoogleUtilities/Privacy
   - GoogleUtilities/Privacy (8.0.2)
+  - GoogleUtilities/Reachability (8.0.2):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
   - "gRPC-C++ (1.65.5)":
     - "gRPC-C++/Implementation (= 1.65.5)"
     - "gRPC-C++/Interface (= 1.65.5)"
@@ -1317,21 +1348,28 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - RecaptchaInterop (100.0.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - sqflite_darwin (0.0.4):
     - Flutter
     - FlutterMacOS
+  - webview_flutter_wkwebview (0.0.1):
+    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -1339,6 +1377,7 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAppCheckInterop
+    - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreExtension
@@ -1353,31 +1392,40 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - RecaptchaInterop
 
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  firebase_auth:
+    :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_storage:
     :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: Flutter
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite_darwin:
     :path: ".symlinks/plugins/sqflite_darwin/darwin"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
   BoringSSL-GRPC: ca6a8e5d04812fce8ffd6437810c2d46f925eaeb
-  cloud_firestore: 3fafe78d755b01fe1fd267a87bb52e80b7dacacc
+  cloud_firestore: 56bca083ecf07f16188ace1d5b57123bcb1b3465
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
-  firebase_core: 418aed674e9a0b8b6088aec16cde82a811f6261f
+  firebase_auth: c4bdd9d7b338ac004008cb5024a643584e0ec03f
+  firebase_core: b62a5080210edad3f2934314a8b2c6f5124e8e10
   firebase_storage: 8826dc971e5029b48826613f7265952e55191585
   FirebaseAppCheckInterop: 347aa09a805219a31249b58fc956888e9fcb314b
+  FirebaseAuth: c359af98bd703cbf4293eec107a40de08ede6ce6
   FirebaseAuthInterop: a919d415797d23b7bfe195a04f322b86c65020ef
   FirebaseCore: e0510f1523bc0eb21653cac00792e1e2bd6f1771
   FirebaseCoreExtension: f1bc67a4702931a7caa097d8e4ac0a1b0d16720e
@@ -1387,6 +1435,7 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: a4e5dfca3e210633bb3a3dfb94176c019211948b
   FirebaseStorage: 1bf8f80ac3bb02c72844b7350e95e10be7113ef0
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_secure_storage: d33dac7ae2ea08509be337e775f6b59f1ff45f12
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   "gRPC-C++": 2fa52b3141e7789a28a737f251e0c45b4cb20a87
   gRPC-Core: a27c294d6149e1c39a7d173527119cfbc3375ce4
@@ -1394,8 +1443,10 @@ SPEC CHECKSUMS:
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
+  webview_flutter_wkwebview: 0982481e3d9c78fd5c6f62a002fcd24fc791f1e4
 
 PODFILE CHECKSUM: f393a3e970b6bcad3ccd24fdc079653b90c459b1
 

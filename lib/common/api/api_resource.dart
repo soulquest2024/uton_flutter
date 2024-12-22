@@ -1,7 +1,7 @@
 
 
 class ApiResource<T> {
-  late final ApiStatus status;
+  final ApiStatus status;
   final T? data;
   final String? message;
   Function()? action;
@@ -41,3 +41,12 @@ class ApiResource<T> {
 
 enum ApiStatus { LOADING, SUCCESS, ERROR, ERROR_WITH_DATA, IDLE, SHOWDIALOG, TIMEOUT }
 
+class ApiResourceManager<T> {
+  ApiResource<T> get idle => ApiResource.idle();
+  ApiResource<T> success(T data) => ApiResource.success(data);
+  ApiResource<T> loading() => ApiResource.loading();
+  ApiResource<T> error(String message) => ApiResource.error(message);
+  ApiResource<T> errorWithData(String message, T data) => ApiResource.errorWithData(message, data);
+  ApiResource<T> showDialog(T data, String message, {bool? dialogSuccess, Function()? action}) => ApiResource.showDialog(data, message, dialogSuccess: dialogSuccess, action: action);
+  ApiResource<T> timeout(String message) => ApiResource.timeout(message);
+}

@@ -11,12 +11,20 @@ class FirestoreDatabase {
 
   static final FirestoreDatabase shared = FirestoreDatabase._privateConstructor();
 
+  CollectionReference? programsCollection = FirebaseFirestore.instance.collection('programs');
   CollectionReference? offersCollection = FirebaseFirestore.instance.collection('offers');
+
+  Future<QuerySnapshot>? getPrograms() {
+    try {
+      return programsCollection?.get();
+    } catch (e) {
+      debugPrint("Error getting programs: $e");
+      return null;
+    }
+  }
 
   Future<QuerySnapshot>? getOffers() {
     try {
-      debugPrint("offersCollection: $offersCollection");
-
       return offersCollection?.get();
     } catch (e) {
       debugPrint("Error getting offers: $e");
@@ -51,7 +59,6 @@ class FirestoreDatabase {
   Future<Uint8List> downloadImage(String storageLocation) async {
     final storageRef = FirebaseStorage.instance.ref();
     final islandRef = storageRef.child(storageLocation);
-
     try {
       const maxSizeInBytes = 4096 * 4096;
       final Uint8List? imageData = (await islandRef.getData(maxSizeInBytes));

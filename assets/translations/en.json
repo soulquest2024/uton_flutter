@@ -1,0 +1,54 @@
+
+{
+  "app_name" : "Úton",
+
+  "tab_offers" : "Offers",
+  "tab_search" : "Search",
+  "tab_shrine" : "Shrine",
+  "tab_experiences" : "Experiences",
+  "tab_profile" : "Profile",
+  "tab_settings" : "Settings",
+
+  "login_title" : "Login",
+  "login_email" : "E-mail address",
+  "login_password" : "Password",
+  "login_button" : "Login",
+  "login_forgot" : "Forgot password?",
+  "login_register" : "Don't have an account yet? Register!",
+
+  "email_validation" : "Enter your e-mail address!",
+  "password_validation" : "Enter the password!",
+  "password_retype_validation" : "Enter the password again!",
+  "name_validation" : "Enter the name!",
+  "address_validation" : "Enter the address!",
+  "birthdate_validation" : "Enter your birthdate!",
+  "gender_validation" : "Enter your gender!",
+  "gender_select" : "Select your gender!",
+  "gender_male" : "Male",
+  "gender_female" : "Female",
+  "gender_other" : "Other",
+
+  "registration_title" : "Registration",
+  "registration_name" : "Name",
+  "registration_email" : "E-mail address",
+  "registration_password" : "Password",
+  "registration_password_retype" : "Password retype",
+  "registration_button" : "Registration",
+  "registration_login" : "Do you have an account? Login, please!",
+  "registration_address" : "Address",
+  "registration_phone" : "Phone number",
+  "registration_birthdate" : "Birthdate",
+  "registration_gender" : "Gender",
+
+  "forgot_title" : "Forget password",
+  "forgot_instruction" : "Enter your e-mail address, and we will send you a link to reset your password.",
+  "forgot_button" : "Password reset",
+  "forgot_empty_email" : "Enter your e-mail address!",
+  "forget_email_sent" : "E-mail sent!",
+  "forgot_email_not_found" : "E-mail address not found!",
+  "forgot_email_error" : "Error occurred while sending the e-mail!",
+  "forgot_email_format" : "The format of the e-mail address is not correct!",
+
+  "home_title" : "Home"
+
+}
