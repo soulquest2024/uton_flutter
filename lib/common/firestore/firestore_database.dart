@@ -51,7 +51,7 @@ class FirestoreDatabase {
 
       return downloadUrl;
     } catch (e) {
-      print('Failed to get download URL: $e');
+      debugPrint('Failed to get download URL: $e');
       return '';
     }
   }

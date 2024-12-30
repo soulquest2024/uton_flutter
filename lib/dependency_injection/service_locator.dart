@@ -14,6 +14,8 @@ import 'package:uton_flutter/home/offers/home_offers.dart';
 import 'package:uton_flutter/home/programs/home_programs.dart';
 import 'package:uton_flutter/providers/authProvider.dart';
 import 'package:uton_flutter/providers/home_provider.dart';
+import 'package:uton_flutter/settings/profile/profile_screen.dart';
+import 'package:uton_flutter/settings/settings_screen.dart';
 
 final GetIt locator = GetIt.instance;
 
@@ -35,5 +37,8 @@ void setupLocator() {
   locator.registerLazySingleton<HomeScreen>(() => HomeScreen());
   locator.registerLazySingleton<HomePrograms>(() => HomePrograms());
   locator.registerLazySingleton<HomeOffers>(() => HomeOffers());
+
+  locator.registerLazySingleton<SettingsScreen>(() => SettingsScreen());
+  locator.registerLazySingleton<ProfileScreen>(() => ProfileScreen());
 
   locator.registerFactoryParam<WebViewScreen, Map<String, String>, void>((params, _) => WebViewScreen(url: params['url']!, title: params['title']!));}

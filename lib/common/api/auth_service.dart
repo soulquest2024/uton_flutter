@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthService {
@@ -14,7 +15,6 @@ class AuthService {
   Future<String?> getToken() async {
     final token = await _storage.read(key: 'idToken');
 
-    // Ha nincs token vagy lejárt, frissítsük
     if (token == null || await isTokenExpired(token)) {
       return await refreshAndSaveToken();
     }
@@ -48,11 +48,11 @@ class AuthService {
   Future<String?> refreshIdToken() async {
     try {
       String? idToken = await FirebaseAuth.instance.currentUser!.getIdToken(true);
-      print('Token refreshed: $idToken');
+      debugPrint('Token refreshed: $idToken');
       return idToken;
     } catch (e) {
-      print('Failed to refresh token: $e');
-      throw e;
+      debugPrint('Failed to refresh token: $e');
+      rethrow;
     }
   }
 }

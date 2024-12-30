@@ -12,6 +12,7 @@ import 'package:uton_flutter/home/programs/home_programs.dart';
 import 'package:uton_flutter/providers/home_provider.dart';
 import 'package:uton_flutter/search/search_screen.dart';
 import 'package:uton_flutter/settings/settings_screen.dart';
+import 'package:uton_flutter/shrine/shrine_screen.dart';
 
 import 'offers/home_offers.dart';
 
@@ -157,9 +158,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             children: <Widget>[
               _mainPage(),
               SearchScreen(),
-              Center(child: Text('School Tab')),
+              ShrineScreen(),
               Center(child: Text('Experiences Tab')),
-              SettingsScreen(),
+              locator<SettingsScreen>(),
             ],
           ),
         ),

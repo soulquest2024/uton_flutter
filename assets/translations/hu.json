@@ -20,6 +20,7 @@
   "password_validation" : "Írd be a jelszót!",
   "password_retype_validation" : "Írd be a jelszót újra!",
   "name_validation" : "Írd be a nevet!",
+  "phone_validation" : "Írd be a telefonszámot!",
   "address_validation" : "Írd be a címet!",
   "birthdate_validation" : "Add meg a születési dátumot!",
   "gender_validation" : "Add meg a nemedet!",
@@ -49,6 +50,30 @@
   "forgot_email_error" : "Hiba történt az e-mail küldése közben!",
   "forgot_email_format" : "Az e-mail cím formátuma nem megfelelő!",
 
-  "home_title" : "Főoldal"
+  "home_title" : "Főoldal",
 
+  "settings_title" : "Beállítások",
+  "logout_button" : "Kijelentkezés",
+
+  "profile_title" : "Profil",
+  "profile_name" : "Név",
+  "profile_email" : "E-mail cím",
+  "profile_address" : "Lakcím",
+  "profile_phone" : "Telefonszám",
+  "profile_birthdate" : "Születési dátum",
+  "profile_gender" : "Nem",
+  "profile_edit" : "Szerkesztés",
+  "profile_save" : "Mentés",
+
+  "shrine_title" : "Kegyhely",
+  "shrine_greeting" : "Köszöntő",
+  "shrine_history" : "Történet",
+  "shrine_programs" : "Programok",
+  "shrine_contact" : "Kapcsolat",
+  "shrine_gallery" : "Galéria",
+  "shrine_game" : "Játék",
+  "shrine_hotels" : "Szálláshelyek",
+  "shrine_restaurants" : "Éttermek",
+  "shrine_attractions" : "Látnivalók",
+  "shrine_booking" : "Foglalás"
 }

@@ -3,22 +3,19 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:uton_flutter/common/api/api_resource.dart';
 import 'package:uton_flutter/common/app_constant.dart';
 import 'package:uton_flutter/common/common_widgets/animation_widget.dart';
 import 'package:uton_flutter/common/common_widgets/app_text.dart';
 import 'package:uton_flutter/common/common_widgets/common_widgets.dart';
-import 'package:uton_flutter/common/models/offer.dart';
 import 'package:uton_flutter/common/models/program.dart';
-import 'package:uton_flutter/dependency_injection/service_locator.dart';
 import 'package:uton_flutter/providers/home_provider.dart';
 import 'package:uton_flutter/providers/image_provider.dart';
 
 class HomePrograms extends StatefulWidget {
 
-  HomePrograms({Key? key}) : super(key: key);
+  const HomePrograms({Key? key}) : super(key: key);
 
   @override
   _HomeProgramsState createState() => _HomeProgramsState();
@@ -36,9 +33,9 @@ class _HomeProgramsState extends State<HomePrograms> {
     return Consumer<HomeProvider>(
         builder: (context, provider, child) {
           final programState = provider.programs;
-          if (programState?.status == ApiStatus.LOADING) {
+          if (programState?.status == ApiStatus.loading) {
             return Center(child: AnimationWidget());
-          } else if (programState?.status == ApiStatus.ERROR) {
+          } else if (programState?.status == ApiStatus.error) {
             return Center(child: Text("Egyetlen betű sem érkezett"));
           } else {
             return Container(

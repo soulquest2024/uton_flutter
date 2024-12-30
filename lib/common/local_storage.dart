@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageKeys {
@@ -19,7 +20,7 @@ class LocalStorage {
     try {
       return prefs.getString(key);
     } catch (e, trace) {
-      print(trace.toString());
+      debugPrint(trace.toString());
       return null;
     }
   }
@@ -29,7 +30,7 @@ class LocalStorage {
     try {
       return prefs.getInt(key);
     } catch (e, trace) {
-      print(trace.toString());
+      debugPrint(trace.toString());
       return null;
     }
   }
@@ -39,7 +40,7 @@ class LocalStorage {
     try {
       return prefs.getDouble(key);
     } catch (e, trace) {
-      print(trace.toString());
+      debugPrint(trace.toString());
       return null;
     }
   }
@@ -49,7 +50,7 @@ class LocalStorage {
     try {
       return prefs.getBool(key);
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
       return null;
     }
   }
@@ -60,7 +61,7 @@ class LocalStorage {
       String? read = prefs.getString(key);
       return (read == null || read.isEmpty) ? null : DateTime.parse(read);
     } catch (e, trace) {
-      print("readDate: failed to parse date time: $e");
+      debugPrint("readDate: failed to parse date time: $e");
       return null;
     }
   }

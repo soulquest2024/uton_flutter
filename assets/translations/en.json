@@ -20,6 +20,7 @@
   "password_validation" : "Enter the password!",
   "password_retype_validation" : "Enter the password again!",
   "name_validation" : "Enter the name!",
+  "phone_validation" : "Enter the phone number!",
   "address_validation" : "Enter the address!",
   "birthdate_validation" : "Enter your birthdate!",
   "gender_validation" : "Enter your gender!",
@@ -49,6 +50,31 @@
   "forgot_email_error" : "Error occurred while sending the e-mail!",
   "forgot_email_format" : "The format of the e-mail address is not correct!",
 
-  "home_title" : "Home"
+  "home_title" : "Home",
+
+  "settings_title" : "Settings",
+  "logout_button" : "Logout",
+
+  "profile_title" : "Profile",
+  "profile_name" : "Name",
+  "profile_email" : "E-mail address",
+  "profile_address" : "Address",
+  "profile_phone" : "Phone number",
+  "profile_birthdate" : "Birthdate",
+  "profile_gender" : "Gender",
+  "profile_edit" : "Edit",
+  "profile_save" : "Save",
+
+  "shrine_title" : "Shrine",
+  "shrine_greeting" : "Welcome",
+  "shrine_history" : "History",
+  "shrine_programs" : "Programs",
+  "shrine_contact" : "Contact",
+  "shrine_gallery" : "Gallery",
+  "shrine_game" : "Game",
+  "shrine_hotels" : "Hotels",
+  "shrine_restaurants" : "Restaurants",
+  "shrine_attractions" : "Attractions",
+  "shrine_booking" : "Booking"
 
 }

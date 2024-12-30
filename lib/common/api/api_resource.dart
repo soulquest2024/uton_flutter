@@ -8,38 +8,38 @@ class ApiResource<T> {
   bool? dialogSuccess = false;
 
   bool get hasData => data != null;
-  bool get hasError => data == null && status == ApiStatus.ERROR;
+  bool get hasError => data == null && status == ApiStatus.error;
 
   ApiResource.success(this.data)
-      : status = ApiStatus.SUCCESS,
+      : status = ApiStatus.success,
         message = null;
 
   ApiResource.loading()
-      : status = ApiStatus.LOADING,
+      : status = ApiStatus.loading,
         data = null,
         message = null;
 
   ApiResource.error(this.message)
-      : status = ApiStatus.ERROR,
+      : status = ApiStatus.error,
         data = null;
 
   ApiResource.errorWithData(this.message, this.data)
-      : status = ApiStatus.ERROR_WITH_DATA;
+      : status = ApiStatus.errorWithData;
 
   ApiResource.idle()
-      : status = ApiStatus.IDLE,
+      : status = ApiStatus.idle,
         data = null,
         message = null;
 
   ApiResource.showDialog(this.data, this.message, {this.dialogSuccess, this.action})
-      : status = ApiStatus.SHOWDIALOG;
+      : status = ApiStatus.showDialog;
 
   ApiResource.timeout(this.message)
-      : status = ApiStatus.TIMEOUT,
+      : status = ApiStatus.timeout,
         data = null;
 }
 
-enum ApiStatus { LOADING, SUCCESS, ERROR, ERROR_WITH_DATA, IDLE, SHOWDIALOG, TIMEOUT }
+enum ApiStatus { loading, success, error, errorWithData, idle, showDialog, timeout }
 
 class ApiResourceManager<T> {
   ApiResource<T> get idle => ApiResource.idle();

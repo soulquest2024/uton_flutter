@@ -1,7 +1,6 @@
 
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uton_flutter/common/string_resources.dart';
 
@@ -12,7 +11,9 @@ class Global {
 
   static ValueNotifier<bool> isUserLoggedIn = ValueNotifier<bool>(false);
   static const double mainPadding = 16.0;
+  static const double smallPadding = 8.0;
   static const double mainCornerRadius = 8.0;
+  static const double mainButtonHeight = 80.0;
 
   static const Locale defaultInitialPreferredLocale = Locale("hu", '');
   static List<Locale> getSupportedLanguages() {
@@ -27,7 +28,7 @@ class Global {
       try {
         //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const LoginScreen()), (Route<dynamic> r) => false);
       } catch (e) {
-        print(e);
+        debugPrint(e as String?);
       }
     }
   }
@@ -62,9 +63,18 @@ class AppColor {
   Color primaryInactiveColor = const Color.fromRGBO(240, 240, 240, 1);
   Color hintTextColor = const Color.fromRGBO(150, 150, 150, 1);
 
+  Color softSunriseColor = const Color.fromRGBO(255, 247, 214, 1.0);
+  Color blushPetalColor = const Color.fromRGBO(250, 218, 221, 1.0);
+  Color mintBreezeColor = const Color.fromRGBO(214, 245, 225, 1.0);
+  Color peachWhisperColor = const Color.fromRGBO(255, 228, 204, 1.0);
+  Color lavenderDreamColor = const Color.fromRGBO(232, 230, 249, 1.0);
+  Color creamCloudColor = const Color.fromRGBO(251, 248, 241, 1.0);
+  Color coralGlowColor = const Color.fromRGBO(250, 212, 199, 1.0);
+  Color aquaMistColor = const Color.fromRGBO(216, 240, 249, 1.0);
+
 
   Color blackWithOpacity(double opacity) {
-    return textColor.withOpacity(opacity);
+    return textColor.withValues(alpha: opacity);
   }
 
   Gradient get yellowHorizontalGradient {
@@ -198,7 +208,7 @@ class App {
   }
 
   static Locale getDeviceLanguage() {
-    List<Locale> systemLocales = window.locales;
+    List<Locale> systemLocales = PlatformDispatcher.instance.locales;
     if (systemLocales.isNotEmpty) {
       return systemLocales[0];
     } else {

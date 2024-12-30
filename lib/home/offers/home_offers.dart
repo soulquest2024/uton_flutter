@@ -4,7 +4,6 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:uton_flutter/common/api/api_resource.dart';
 import 'package:uton_flutter/common/app_constant.dart';
@@ -19,7 +18,7 @@ import 'package:uton_flutter/providers/image_provider.dart';
 
 class HomeOffers extends StatefulWidget {
 
-  HomeOffers({Key? key}) : super(key: key);
+  const HomeOffers({Key? key}) : super(key: key);
 
   @override
   _HomeOffersState createState() => _HomeOffersState();
@@ -30,9 +29,9 @@ class _HomeOffersState extends State<HomeOffers> {
   Widget build(BuildContext context) {
     final homeProvider = locator<HomeProvider>();
     final offersState = homeProvider.offers;
-    if(offersState.status == ApiStatus.LOADING) {
+    if(offersState.status == ApiStatus.loading) {
       return Center(child: AnimationWidget());
-    } else if(offersState.status == ApiStatus.ERROR) {
+    } else if(offersState.status == ApiStatus.error) {
       return Center(child: Text("Egyetlen betű sem érkezett"));
     } else {
       return Container(

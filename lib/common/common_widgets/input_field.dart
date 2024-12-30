@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ enum InputType {
   password,
   passwordRetype,
   name,
+  phone,
   address,
   birthdate,
   gender,
@@ -138,6 +138,8 @@ class _InputFieldState extends State<InputField> {
         return 'registration_password_retype'.tr();
       case InputType.name:
         return 'registration_name'.tr();
+      case InputType.phone:
+        return 'registration_phone'.tr();
       case InputType.address:
         return 'registration_address'.tr();
       case InputType.birthdate:
@@ -157,6 +159,8 @@ class _InputFieldState extends State<InputField> {
         return 'password_retype_validation'.tr();
       case InputType.name:
         return 'email_validation'.tr();
+      case InputType.phone:
+        return 'phone_validation'.tr();
       case InputType.address:
         return 'email_validation'.tr();
       case InputType.birthdate:

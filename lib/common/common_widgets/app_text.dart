@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:uton_flutter/common/app_constant.dart';
 
 class AppText extends StatelessWidget {
@@ -34,14 +35,13 @@ class AppText extends StatelessWidget {
         this.maxLines = 1000,
         this.maxWidth = double.infinity,
         this.fontWeight,
-        Key? key
+        super.key
       }
-      ) : super(key: key);
+      );
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: (maxWidth != null) ? BoxConstraints(maxWidth: maxWidth!) : null,
         child: Text(
             text ?? "",
             maxLines: maxLines,
